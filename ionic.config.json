@@ -1,0 +1,7 @@
+{
+  "name": "LiderTrade",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
