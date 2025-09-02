@@ -1,0 +1,13 @@
+ion-card {
+    font-family: 'JetBrains Mono';
+    padding: 20px;
+    ion-card-title {
+        padding-bottom: 10px;
+        border-bottom: #FFA235 solid 5px;
+    }
+    ion-card-content {
+        a {
+            text-decoration: none;
+        }
+    }
+}

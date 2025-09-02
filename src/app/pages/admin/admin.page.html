@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<ion-content>
+  <section>
+    <ion-card>
+      <ion-card-title>Cadastro de Dados</ion-card-title>
+      <ion-card-content>
+        <ion-buttons>
+          <ion-button (click)="AbrirModal('Cadastro de Clientes')">📝 cadastrar cliente</ion-button>
+          <ion-button (click)="AbrirModal('Cadastro de Coordenador')">📝 cadastrar coordenador(a)</ion-button>
+          <ion-button (click)="AbrirModal('Cadastro de Lojas')">📝 cadastrar lojas</ion-button>
+          <ion-button (click)="AbrirModal('Cadastro de Produtos')">📝 cadastrar produtos</ion-button>
+        </ion-buttons>
+      </ion-card-content>
+    </ion-card>
+  </section>
+
+  <section>
+    <ion-card>
+      <ion-card-title>Cadastro de Usuários</ion-card-title>
+      <ion-card-content>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Data de Atualização</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of usuarios">
+              <td>{{item.id}}</td>
+              <td>{{item.updated_at}}</td>
+              <td>{{item.full_name}}</td>
+              <td>{{item.username}}@liderfield.com.br</td>
+              <td>
+                <ion-button>deletar</ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>
+
+<app-footer></app-footer>

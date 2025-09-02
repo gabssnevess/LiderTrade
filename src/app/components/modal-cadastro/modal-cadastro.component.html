@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <ion-title>{{titulo}}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="FecharModal()">Fechar</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="titulo === 'Cadastro de Clientes'">
+    <ion-input label="Nome" labelPlacement="floating" fill="outline" placeholder="Insira o nome do cliente..." [(ngModel)]="nome"></ion-input>
+    <ion-input label="SKU"  labelPlacement="floating" fill="outline" placeholder="Insira a quantidade de SKU..." [(ngModel)]="sku" type="number"></ion-input>
+    <ion-button (click)="InsertCliente(nome, sku)">cadastrar</ion-button>
+  </div>
+
+  <div *ngIf="titulo === 'Cadastro de Coordenador'">
+    <ion-input label="Nome"    labelPlacement="floating" fill="outline" placeholder="Insira o nome do cliente..." [(ngModel)]="coordenador"></ion-input>
+    <ion-input label="Estado"  labelPlacement="floating" fill="outline" placeholder="Insira o nome do cliente..." [(ngModel)]="estado"></ion-input>
+    <ion-button (click)="InsertCoordenador(coordenador, estado);">cadastrar</ion-button>
+  </div>
+</ion-content>

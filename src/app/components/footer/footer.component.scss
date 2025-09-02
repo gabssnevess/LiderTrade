@@ -1,0 +1,17 @@
+ion-footer {
+    box-shadow: none;
+    ion-toolbar {
+        div {
+            padding-left: 20px;
+            padding-right: 20px;
+            font-family: 'JetBrains Mono';
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #010A16;
+            img {
+                width: 10%;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+ion-header {
+    box-shadow: none;
+    ion-toolbar {
+        font-family: 'JetBrains Mono';
+        border-bottom: #FFA235 solid 5px;
+        color: white;
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #347EC3;
+            padding: 20px;
+            ion-buttons {
+                ion-button {
+                    color: white;
+                    font-family: 'JetBrains Mono';
+                    border-bottom: #FFA235 solid 3px;
+                }
+            }
+        }
+    }
+}
+
+ion-content {
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+}

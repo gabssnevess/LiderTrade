@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <div>
+      <img id="logo" src="../../../assets/images/icon2.png" alt="">
+      <ion-buttons>
+        <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active">início</ion-button>
+        <ion-button [routerLink]="['/admin']" routerLinkActive="router-link-active">administração</ion-button>
+        <ion-text id="userNow">👤 {{usuario}}</ion-text>
+        <ion-button style="--background: red;" (click)="LogOut();">sair</ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
