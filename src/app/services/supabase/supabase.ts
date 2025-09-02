@@ -52,4 +52,27 @@ export class Supabase {
       estado: estado,
     });
   }
+
+  // Pegando as redes
+  async GetRedes() {
+    return await this.supabase.from('tbl_Redes').select('*');
+  }
+
+  // Pegando os tipos de tamanho de lojas
+  async GetTamanhos() {
+    return await this.supabase.from('tbl_TamanhoLojas').select('*');
+  }
+
+  // Cadastrando novas lojas
+  async InsertLoja(nome: string, cnpj: string, rua: string, cidade: string, estado: string, rede: number, tamanho: number) {
+    return await this.supabase.from('tbl_Lojas').insert({
+      nome: nome,
+      cnpj: cnpj,
+      rua: rua,
+      cidade: cidade,
+      estado: estado,
+      rede: rede,
+      tamanho_loja: tamanho
+    });
+  }
 }

@@ -16,7 +16,10 @@ export class ModalCadastroComponent implements OnInit {
   @Input() titulo: string = '';
 
   constructor(private modalCtrl: ModalController, private supabase: Supabase, private alertController: AlertController) { }
-  ngOnInit() {}
+  ngOnInit() {
+    this.GetRedes();
+    this.GetTamanhos();
+  }
 
   // Criando alertas
   async PresentAlert(header: string, message: string) {
@@ -54,6 +57,47 @@ export class ModalCadastroComponent implements OnInit {
   public estado: string = '';
   async InsertCoordenador(nome: string, estado: string) {
     const {error} = await this.supabase.InsertCoordenador(nome, estado);
+    if (error) {
+      this.PresentAlert('🔴 Erro!', 'Verifique sua conexão ou seu nível de acesso com um administrador.');
+    } else {
+      await this.PresentAlert('🟢 Item Cadastrado!', 'Item cadastrado com sucesso. Sua página será recarregada.');
+      window.location.reload();
+    }
+  }
+
+  // Pegando as redes
+  redes: any[] = [];
+  async GetRedes() {
+    const {data, error} = await this.supabase.GetRedes();
+    if (error) {
+      this.PresentAlert('🔴 Erro!', 'Verifique sua conexão ou seu nível de acesso com um administrador.');
+    } else {
+      this.redes = data;
+    }
+  }
+
+  // Pegando os tamanhos de lojas
+  tamanhos: any[] = [];
+  async GetTamanhos() {
+    const {data, error} = await this.supabase.GetTamanhos();
+    if (error) {
+      this.PresentAlert('🔴 Erro!', 'Verifique sua conexão ou seu nível de acesso com um administrador.');
+    } else {
+      this.tamanhos = data;
+    }
+  }
+
+  // Cadastrando loja
+  public nome_loja: string = "";
+  public cnpj_loja: string = "";
+  public rua_loja : string = "";
+  public cidade_loja: string = "";
+  public estado_loja: string = "";
+  public rede_loja: number = 0;
+  public tamanho_loja: number = 0;
+  async InsertLoja() {
+    const {error} = await this.supabase.InsertLoja(this.nome_loja, this.cnpj_loja, this.rua_loja, this.cidade_loja,
+      this.estado_loja, this.rede_loja, this.tamanho_loja);
     if (error) {
       this.PresentAlert('🔴 Erro!', 'Verifique sua conexão ou seu nível de acesso com um administrador.');
     } else {

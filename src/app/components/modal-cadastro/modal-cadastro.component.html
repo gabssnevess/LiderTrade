@@ -21,4 +21,19 @@
     <ion-input label="Estado"  labelPlacement="floating" fill="outline" placeholder="Insira o nome do cliente..." [(ngModel)]="estado"></ion-input>
     <ion-button (click)="InsertCoordenador(coordenador, estado);">cadastrar</ion-button>
   </div>
+
+  <div *ngIf="titulo === 'Cadastro de Lojas'">
+    <ion-input label="Nome"   fill="outline" labelPlacement="floating"></ion-input>
+    <ion-input label="CNPJ"   fill="outline" labelPlacement="floating"></ion-input>
+    <ion-input label="Rua"    fill="outline" labelPlacement="floating"></ion-input>
+    <ion-input label="Cidade" fill="outline" labelPlacement="floating"></ion-input>
+    <ion-input label="Estado" fill="outline" labelPlacement="floating"></ion-input>
+    <ion-select label="Rede"  fill="outline" labelPlacement="floating">
+      <ion-select-option *ngFor="let item of redes" value="{{item.id}}">{{item.nome}}</ion-select-option>
+    </ion-select>
+    <ion-select label="Tamanho da Loja"  fill="outline" labelPlacement="floating">
+      <ion-select-option *ngFor="let item of tamanhos" value="{{item.id}}">{{item.descricao}}</ion-select-option>
+    </ion-select>
+    <ion-button>cadastrar</ion-button>
+  </div>
 </ion-content>
